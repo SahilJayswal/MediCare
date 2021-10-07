@@ -1,0 +1,169 @@
+<html>
+<head>
+<title>Welcome to Medicare</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+*{
+	margin:0;
+	padding:0;
+	list-style-type: none;
+}
+.type li a{
+	color:black;
+  text-decoration: none;
+}
+.type li a:hover{
+	color:rgb(0, 128, 192);
+}
+ul {
+  
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #e7e7e7;
+  background-color: #f3f3f3;
+}
+
+.homenav li {
+  float: left;
+}
+
+.homenav li a {
+  display: block;
+  color: #666;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.homenav li a:hover {
+  background-color: #ddd;
+}
+
+.main{
+	display:flex;
+	flex-direction: column;
+	padding: 30px 200px;
+}
+
+.main_first, .main_second{
+	display:flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 0px;
+	border-bottom: 2px solid sandybrown;
+}
+
+.main_third{
+	display:flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 20px;
+}
+
+.first_first_text, .second_first_text{
+	width: 40%;
+}
+
+.first_second_text, .first_third_text, .first_fourth_text, .first_fifth_text, .second_second_text, .second_fourth_text, .second_fifth_text{
+	width: 10%;
+}
+
+.second_third_text{
+	width: 20%;
+	display: flex;
+	justify-content: space-around;
+}
+
+
+.fa-trash-alt{
+	margin-right: 20px;
+	background-color: tomato;
+	padding: 7px;
+	border-radius: 5px;
+}
+
+.second_third_text input{
+	width: 70px;
+	padding-left: 10px;
+}
+
+.third_second_text{
+	text-align: right;
+	width: 60%;
+}
+
+
+.third_first_text, .third_third_text{
+	text-align: center;
+	width: 20%;
+}
+
+.third_first_text a, .third_third_text a{
+	text-decoration: none;
+	border: 1px solid silver;
+	background-color: cyan;
+	padding: 6px 12px;
+    border-radius: 5px;
+	color: #666;
+}
+
+.submit{
+	border-radius: 5px;
+	width: 32px;
+	background-color: #fff;
+}
+
+.fa-minus, .fa-plus{
+	background-color: aliceblue;
+	padding: 7px;
+	border-radius: 5px;
+}
+</style>
+</head>
+<body>
+<ul class="homenav">
+  <li><a href="/userdashboard">Medicare</a></li>
+  <!--<li><a href="/about">About</a></li>
+  <li><a href="/contact">Contact</a></li>-->
+  <li><a href="/viewproduct">View Product</a></li>
+  <!--<li><a href="/cart">Cart</a></li>-->
+  <li style="float:right"><a href="/logout">Logout</a>
+  <!--</li>
+  <li style="float:right"><a><span th:text="${firstname}" style="padding:5px;"></span><span th:text="${lastname}"></span>
+  </a></li>-->
+</ul>
+<h3>Order Summary</h3>
+<div class="main">
+<div class="main_first">
+<div class="first_first_text">Product</div>
+<div class="first_second_text">Price</div>
+<div class="first_third_text">Quantity</div>
+<div class="first_fourth_text">Subtotal</div>
+<div class="first_fifth_text">Operation</div>
+</div>
+<div class="main_second" th:each="data : ${listprod}">
+<div class="second_first_text">
+<h3><span th:text="${data.name}"></span></h3>
+<p>Brand: <span th:text="${data.brand}"></span></p>
+<p>Discription: <span th:text="${data.description}"></span></p>
+</div>
+<div class="second_second_text">₹ <span th:text="${data.price}"></span></div>
+<div class="second_third_text">
+<input type="number" th:value="${data.quantity}" disabled> 
+</div>
+<div class="second_fourth_text">₹ <span th:text="${data.subtotal}"></span></div>
+</div>
+    
+<div class="main_third">
+<div class="third_first_text"><a href="/viewproduct"> <i class="fas fa-chevron-left"></i> Continue Shopping</a></div>
+<div class="third_second_text"><h5 id="Total1"> Total: ₹ <span th:text="${price}"></h5></div>
+
+
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

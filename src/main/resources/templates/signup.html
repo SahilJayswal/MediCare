@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Register</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<style>
+*{
+	margin:0;
+	padding:0;
+	list-style-type: none;
+}
+.type li a{
+	color:black;
+  text-decoration: none;
+}
+.type li a:hover{
+	color:rgb(0, 128, 192);
+}
+ul {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #e7e7e7;
+  background-color: #f3f3f3;
+}
+
+.homenav li {
+  float: left;
+}
+
+.homenav li a {
+  display: block;
+  color: #666;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.homenav li a:hover {
+  background-color: #ddd;
+}
+.main{
+	width: 100%;
+	height: 80vh;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.main_first{
+	width: 400px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	padding: 0px 40px ;
+}
+
+.main_first p{
+	padding-top: 10px;
+}
+
+.main_first p a{
+	color: #000;
+	text-decoration: none;
+}
+
+.main_first p a:hover{
+	text-decoration: underline;
+}
+
+input{
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 15px;
+}
+.login{
+	font-weight: bold;
+	padding: 10px 0px;
+	font-size: 23px;
+}
+</style>
+</head>
+<body>
+<ul class="homenav">
+  <li><a href="/index">Medicare</a></li>
+    <li style="float:right"><a href="/login">Login</a></li>
+</ul>
+<div class="main">
+<div class="main_first">
+<p class="login">Signup</p>
+<form th:action="@{/register}" method="POST" th:object="${user}">
+<input type="text" placeholder="Enter Your First Name" name="firstName" th:field="*{firstName}" required>
+<input type="text" placeholder="Enter Your Last Name" name="lastName" th:field="*{lastName}" required>
+<input type="email" placeholder="Enter Your Email" name="email" th:field="*{email}" required>
+<input type="password" placeholder="Enter Your Password" name="password" th:field="*{password}" required>
+<input type="submit" value="Sign Up">
+<p><a href="/login">Already Have account, <b>Login</b></a></p>
+</form>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
