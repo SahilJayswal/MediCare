@@ -45,11 +45,6 @@ public class MainController {
 		return "login";
 	}
 	
-	@RequestMapping(value = "/userdashboard")
-	public String userdash() {
-		return "userdashboard";
-	}
-	
 	@RequestMapping(value = "/logout")
 	public String logout() {
 		return "logout";
@@ -62,7 +57,7 @@ public class MainController {
 	UserRepository repo;
 	
 	@RequestMapping(value = "/auth" , method = RequestMethod.POST)
-	public String login(ModelMap model, @RequestParam String email, @RequestParam String password ) {
+	public String login(ModelMap model,Model map, @RequestParam String email, @RequestParam String password ) {
 		boolean isvalidAdmin = service.validateAdmin(email, password);
 		boolean isvalidUser = service.validateUser(email, password);
 		if(isvalidAdmin) {
@@ -73,12 +68,11 @@ public class MainController {
 			List<User> allUser = repo.findAll();
 			for (User valUser : allUser) {
 				if(email.equalsIgnoreCase(valUser.getEmail())) {
-					model.put("firstname", valUser.getFirstName());
-					model.put("lastname", valUser.getLastName());
+					map.addAttribute("firstname", valUser.getFirstName());
+					map.addAttribute("lastname", valUser.getLastName());
+					map.addAttribute("id", valUser.getId());
 				}
 			}
-			model.put("email", email);
-			model.put("password", password);
 			return "userdashboard";
 		}
 		model.put("errorMessage", "Invalid Credential");
@@ -93,6 +87,7 @@ public class MainController {
 	
 	@PostMapping("/register")
 	public String Registration(User user) {
+		user.setRole("customer");
 		userRepo.save(user);
 		return "registerSuccess";
 	}

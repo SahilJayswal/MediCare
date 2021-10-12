@@ -12,12 +12,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.medicare.model.Product;
 import com.medicare.repository.ProductRepository;
+import com.medicare.repository.UserRepository;
 
 @Controller
 public class ProductController {
 
 	@Autowired
 	ProductRepository prodRepo;
+	
+	@Autowired
+	UserRepository userRepo;
 	
 	@RequestMapping(value = "/viewproduct")
 	public String viewAllProduct(Model map) {
@@ -54,8 +58,11 @@ public class ProductController {
 		return "viewproduct";
 	}
 	
+	@RequestMapping(value = "/userdashboard")
+	public String userdash() {		
+		return "userdashboard";
+	}
 	
 	
-	 
 	
 }
