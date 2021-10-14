@@ -80,6 +80,14 @@ public class PurchaseController {
 		}
 		return "checkout";
 	}
+	@RequestMapping(value = "/ordersummary")
+	public String ordersummary(Model map, ModelMap model) {
+		List<Purchase> listprod = purcRepo.findAll();
+		map.addAttribute("listprod", listprod);
+		int price = service.Total();
+		model.put("price", price);
+		return "order";
+	}
 	
 	@RequestMapping(value = "/thankyou")
 	public String ThankYou() {
