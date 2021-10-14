@@ -175,7 +175,7 @@ input:checked + .slider:before {
 <h1>Available Products</h1>
 <hr>
 <div class="search">
-<form action="/usersearch" method="POST">
+<form action="/medicareapp/usersearch" method="POST">
 <input type="text" name="search" id="search" placeholder="Enter Product Name">
 <button class="button">Search</button>
 </form>
@@ -196,7 +196,7 @@ input:checked + .slider:before {
     <td><span th:text="${data.description}">Description</span></td>
     <td><span th:text="${data.category}">Category</span></td>
     <td><span th:text="${data.price}">Unit&nbsp;Price</span></td>
-    <td><form action="/addcart" method="POST" onSubmit="alert('Medicine added in cart')">
+    <td><form action="/medicareapp/addcart" method="POST" onSubmit="alert('Medicine added in cart')">
     <input type="hidden" name="id" th:value="${data.id}">
     <button type="submit"><i class="fas fa-shopping-basket"></i></button>
    </form></td>
