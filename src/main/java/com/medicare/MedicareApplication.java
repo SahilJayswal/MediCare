@@ -1,17 +1,25 @@
 package com.medicare;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.medicare.model.Product;
+import com.medicare.model.User;
+import com.medicare.repository.UserRepository;
+import com.medicare.service.ProductService;
+
 
 @SpringBootApplication
-public class MedicareApplication {
+public class MedicareApplication  {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MedicareApplication.class, args);
 	}
 
+	
 	/*
 	 * @Autowired UserRepository userRepo;
 	 * 
@@ -40,5 +48,6 @@ public class MedicareApplication {
 	 * 
 	 * }
 	 */
+	 
 
 }
