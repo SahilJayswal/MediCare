@@ -27,7 +27,7 @@ public class MainController {
 	public String home() {
 		return "index";
 	}
-	@RequestMapping(value = "/medicareapp/about")
+	@RequestMapping(value = "/about")
 	public String about() {
 		return "about";
 	}

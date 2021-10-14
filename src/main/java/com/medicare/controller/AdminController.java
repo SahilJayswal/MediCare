@@ -76,7 +76,7 @@ public class AdminController {
 	public String Delete(@RequestParam String id) {
 		int id1 = Integer.parseInt(id);
 		prodRepo.deleteById(id1);
-		return "redirect:/manageproduct";
+		return "redirect:/medicareapp/manageproduct";
 	}
 	
 	@PostMapping("/editproduct")
@@ -102,6 +102,6 @@ public class AdminController {
 	public String updateStatus(@RequestParam String activeId, @RequestParam String active) {
 		int id = Integer.parseInt(activeId);
 		prodRepo.updateStatus(id, active);
-		return "redirect:/manageproduct";
+		return "redirect:/medicareapp/manageproduct";
 	}
 }

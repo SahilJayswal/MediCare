@@ -154,28 +154,28 @@ input:checked + .slider:before {
 </head>
 <body>
 <ul class="homenav">
-  <li><a href="/userdashboard">Medicare</a></li>
+  <li><a href="/medicareapp/userdashboard">Medicare</a></li>
   <!--<li><a href="/about">About</a></li>
   <li><a href="/contact">Contact</a></li>-->
-<li><a href="/viewproduct">View Product</a></li>
-<li><a href="/cart">Cart</a></li>
-<li style="float:right"><a href="/logout">Logout</a>
+<li><a href="/medicareapp/viewproduct">View Product</a></li>
+<li><a href="/medicareapp/cart">Cart</a></li>
+<li style="float:right"><a href="/medicareapp/logout">Logout</a>
 <li style="float:right"><a id="username"></a></li>
 
 </ul>
 <div style="display: flex; width: 100%;">
 <div style="width: 25%;"><h3 style="padding: 30px 0px 10px 20px">Category Filter</h3>
 <ul class="type" style="background-color: #fff; border: none; padding-left: 20px;">
-<li style="padding-bottom: 5px; text-decoration: underline;"><a href="/userAntipyretics">Antipyretics</a></li>
-<li style="padding-bottom: 5px; text-decoration: underline;"><a href="/userAnalgesics">Analgesics</a></li>
-<li style="padding-bottom: 5px; text-decoration: underline;"><a href="/userAntibiotics">Antibiotics</a></li>
+<li style="padding-bottom: 5px; text-decoration: underline;"><a href="/medicareapp/userAntipyretics">Antipyretics</a></li>
+<li style="padding-bottom: 5px; text-decoration: underline;"><a href="/medicareapp/userAnalgesics">Analgesics</a></li>
+<li style="padding-bottom: 5px; text-decoration: underline;"><a href="/medicareapp/userAntibiotics">Antibiotics</a></li>
 </ul>
 </div>
 <div class="main" style="width: 70%;">
 <h1>Available Products</h1>
 <hr>
 <div class="search">
-<form action="/usersearch" method="POST">
+<form action="/medicareapp/usersearch" method="POST">
 <input type="text" name="search" id="search" placeholder="Enter Product Name">
 <button class="button">Search</button>
 </form>
@@ -196,7 +196,7 @@ input:checked + .slider:before {
     <td><span th:text="${data.description}">Description</span></td>
     <td><span th:text="${data.category}">Category</span></td>
     <td><span th:text="${data.price}">Unit&nbsp;Price</span></td>
-    <td><form action="/addcart" method="POST" onSubmit="alert('Medicine added in cart')">
+    <td><form action="/medicareapp/addcart" method="POST" onSubmit="alert('Medicine added in cart')">
     <input type="hidden" name="id" th:value="${data.id}">
     <button type="submit"><i class="fas fa-shopping-basket"></i></button>
    </form></td>
