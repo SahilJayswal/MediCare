@@ -23,11 +23,11 @@ public class MainController {
 	public String index() {
 		return "index";
 	}
-	@RequestMapping(value = "/medicareapp")
+	@RequestMapping(value = "/index")
 	public String home() {
 		return "index";
 	}
-	@RequestMapping(value = "/about")
+	@RequestMapping(value = "/medicareapp/about")
 	public String about() {
 		return "about";
 	}
