@@ -97,7 +97,7 @@ input{
 <div class="main">
 <div class="main_first">
 <p class="login">Edit Medicine</p>
-<form th:action="@{/medicareapp/edit}" method="POST" th:each="data : ${listprod}">
+<form th:action="@{/edit}" method="POST" th:each="data : ${listprod}">
 <input type="text" name="id" th:value="${data.id}" required>
 <input type="text" placeholder="Enter Medicine Name" name="mname"  th:value="${data.name}" required>
 <input type="text" placeholder="Enter Description" name="description"  th:value="${data.description}" required>

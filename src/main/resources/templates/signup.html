@@ -89,7 +89,7 @@ input{
 <div class="main">
 <div class="main_first">
 <p class="login">Signup</p>
-<form th:action="@{/medicareapp/register}" method="POST" th:object="${user}">
+<form th:action="@{/register}" method="POST" th:object="${user}">
 <input type="text" placeholder="Enter Your First Name" name="firstName" th:field="*{firstName}" required>
 <input type="text" placeholder="Enter Your Last Name" name="lastName" th:field="*{lastName}" required>
 <input type="email" placeholder="Enter Your Email" name="email" th:field="*{email}" required>

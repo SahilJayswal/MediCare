@@ -100,7 +100,7 @@ select{
 <div class="main">
 <div class="main_first">
 <p class="login">Add Medicine</p>
-<form th:action="@{/medicareapp/addmedicine}" method="POST" th:object="${product}">
+<form th:action="@{/addmedicine}" method="POST" th:object="${product}">
 <input type="text" placeholder="Enter Medicine Name" name="mname" th:field="*{name}" required>
 <input type="text" placeholder="Enter Description" name="description" th:field="*{description}" required>
 <select name="category" th:field="*{category}">

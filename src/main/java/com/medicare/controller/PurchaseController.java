@@ -57,7 +57,7 @@ public class PurchaseController {
 			purcRepo.save(p);
 		}
 		 
-		return "redirect:/medicareapp/viewproduct";
+		return "redirect:/viewproduct";
 	}
 	
 	@RequestMapping(value = "/cart")
@@ -91,7 +91,7 @@ public class PurchaseController {
 	public String Delete(@RequestParam String id) {
 		int id1 = Integer.parseInt(id);
 		purcRepo.deleteById(id1);
-		return "redirect:/medicareapp/cart";
+		return "redirect:/cart";
 	}
 	
 	@RequestMapping(value = "/increase", method = RequestMethod.POST)
@@ -107,7 +107,7 @@ public class PurchaseController {
 				purcRepo.updateProd(id1, quant, subtotal1);
 			}
 		}
-		return "redirect:/medicareapp/cart";
+		return "redirect:/cart";
 	}
 	
 	@RequestMapping(value = "/decrease", method = RequestMethod.POST)
@@ -129,6 +129,6 @@ public class PurchaseController {
 				}
 			}
 		}
-		return "redirect:/medicareapp/cart";
+		return "redirect:/cart";
 	}
 }
