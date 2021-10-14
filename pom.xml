@@ -12,6 +12,7 @@
 	<artifactId>Medicare</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Medicare</name>
+	<packaging>war</packaging>
 	<description>E-Healthcare web application</description>
 	<properties>
 		<java.version>1.8</java.version>
